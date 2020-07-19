@@ -28,7 +28,10 @@ def bot():
 
         reddit = login()
         r_penny = rpenny_daily_thread(reddit)
+
+        # check if valid stocks are found
         if r_penny is not None:
+            # stocks need to be mentioned at least 3 times to be relevant
             r_penny = r_penny[r_penny['freq'] > 3]
             if len(r_penny) > 0:
                 stocks = f"{len(r_penny)} potential buys found for tomorrow! "

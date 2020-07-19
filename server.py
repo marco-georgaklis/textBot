@@ -12,6 +12,11 @@ client = Client(config.account_sid, config.auth_token)
 app = Flask(__name__)
 
 
+@app.route('/')
+def test():
+    return "<h1> Testing </h1>"
+
+
 @app.route('/server', methods=['POST'])
 def bot():
     incoming_msg = request.values.get('Body', '').lower()
